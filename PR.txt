@@ -57,3 +57,5 @@ db.plantas.aggregate([
 ---------------------------------------------------------------
 
 
+Para executar o programa da API, basta ir à diretoria ex1/API e executar o comando npm start, depois de instalar as dependências.
+Para executar o prgrama da Interface, basta ir à diretoria ex2 e executar o comando npm start, depois de instalar as dependências.
