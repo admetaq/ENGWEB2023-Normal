@@ -1,1 +1,59 @@
+No dataset, alterei o nome do campo "Id" para "_id" e o seu valor, que era um número, alterei para string. 
+De seguida, todas as entradas que não tinham dados, adicionei-lhes uma string a dizer "Sem Registo".
+
+---------------------------------------------------------------
+
+Queries:
+
+1. 
+db.plantas.count()
+
+2. 
+db.plantas.countDocuments({ Freguesia: "São Domingos de Rana" })
+
+3. 
+db.plantas.distinct("Freguesia").sort()
+
+4.
+db.plantas.aggregate([
+  {
+    $group: {
+      _id: "$Freguesia",
+      total: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      Freguesia: "$_id",
+      TotalRegistos: "$total"
+    }
+  },
+  {
+    $sort: { Freguesia: 1 }
+  }
+])
+
+5.
+db.plantas.aggregate([
+  {
+    $group: {
+      _id: "$Espécie",
+      total: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      Espécie: "$_id",
+      TotalRegistos: "$total"
+    }
+  },
+  {
+    $sort: { Espécie: 1 }
+  }
+])
+
+---------------------------------------------------------------
+
 

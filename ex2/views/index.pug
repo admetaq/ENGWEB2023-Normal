@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .w3-card-4
+    header.w3-container.w3-teal
+      h1 Plantas
+    .w3-container
+      table.w3-table-all
+        tr
+          th Id
+          th Freguesia 
+          th Espécie 
+          th Estado 
+          th Nº Intervenções
+
+        each p in plantas
+          tr
+            td
+              a(href="/" + p._id)= p._id
+            td= p.Freguesia 
+            td= p.Espécie 
+            td= p.Estado 
+            td= p['Número de intervenções']
+          
+            
+              
+    footer.w3-container.w3-teal
+      h5 Generated Plantas::EngWeb2023 in #{d}
+    
+    
